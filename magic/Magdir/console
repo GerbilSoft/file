@@ -334,3 +334,5 @@
 >>0x18D		byte		1		(Card1)
 >>0x18D		byte		2		(Card2)
 >>0x18D		byte		3		(extended device)
+>0x118		bequad		0x0102020202000000	Nintendo 3DS eMMC dump (Old3DS)
+>0x118		bequad		0x0102020203000000	Nintendo 3DS eMMC dump (New3DS)
