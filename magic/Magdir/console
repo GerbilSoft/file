@@ -324,6 +324,10 @@
 >>0x206		byte		2		(disc 3)
 >>0x206		byte		3		(disc 4)
 
+#------------------------------------------------------------------------------
+# Nintendo 3DS file formats.
+#
+
 # Type: Nintendo 3DS "NCSD" image. (game cards and eMMC)
 # From: David Korth <gerbilsoft@gerbilsoft.com>
 # Reference: https://www.3dbrew.org/wiki/NCSD
