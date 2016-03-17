@@ -21,6 +21,7 @@
 #
 0x104	bequad	0xCEED6666CC0D000B	Game Boy ROM image:
 >0x134	string	>\0			"%.16s"
+>0x14c	byte	x			(Rev.%02u)
 
 # Machine type. (SGB, CGB, SGB+CGB)
 >0x14b		byte		0x33
