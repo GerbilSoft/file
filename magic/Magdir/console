@@ -129,9 +129,32 @@
 0 string LCDi         Dream Animator file
 
 #------------------------------------------------------------------------------
-# v64: file(1) uncertain magic for the V64 format N64 ROM dumps
+# z64: file(1) magic for the Z64 format N64 ROM dumps
+# Reference: http://forum.pj64-emu.com/showthread.php?t=2239
+# From: David Korth <gerbilsoft@gerbilsoft.com>
 #
-0 belong 0x37804012    V64 Nintendo 64 ROM dump
+0	bequad	0x803712400000000F	Nintendo 64 ROM image:
+>0x20	string	x	"%.20s"
+>0x3B	string	x	(%.4s
+>0x3F	byte	x	\b, Rev.%02u)
+
+#------------------------------------------------------------------------------
+# v64: file(1) magic for the V64 format N64 ROM dumps
+# Same as z64 format, but with 16-bit byteswapping.
+#
+0	bequad	0x3780401200000F00	Nintendo 64 ROM image (V64)
+
+#------------------------------------------------------------------------------
+# n64-swap2: file(1) magic for the swap2 format N64 ROM dumps
+# Same as z64 format, but with swapped 16-bit words.
+#
+0	bequad	0x12408037000F0000	Nintendo 64 ROM image (wordswapped)
+
+#------------------------------------------------------------------------------
+# n64-le32: file(1) magic for the 32-bit byteswapped format N64 ROM dumps
+# Same as z64 format, but with 32-bit byteswapping.
+#
+0	bequad	0x401237800F000000	Nintendo 64 ROM image (32-bit byteswapped)
 
 #------------------------------------------------------------------------------
 # gba: file(1) magic for the Nintendo Game Boy Advance raw ROM format
