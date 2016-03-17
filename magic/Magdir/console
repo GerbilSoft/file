@@ -350,36 +350,35 @@
 # Nintendo GameCube / Wii file formats.
 #
 
+# Type: Nintendo GameCube/Wii common disc header data.
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+# Reference: http://wiibrew.org/wiki/Wii_Disc
+0	name	nintendo-gcn-disc-common
+>0x20	string	x	"%.64s"
+>0x00	string	x	(%.6s
+>0x07	byte	x	\b, Rev.%02u)
+>0x06	byte	1	(disc 2)
+>0x06	byte	2	(disc 3)
+>0x06	byte	3	(disc 4)
+
 # Type: Nintendo GameCube disc image
 # From: David Korth <gerbilsoft@gerbilsoft.com>
 # Reference: http://wiibrew.org/wiki/Wii_Disc
-0x1C		belong		0xC2339F3D	Nintendo GameCube disc image:
->0x00		string		x		%.6s
->0x20		string		x		- "%.64s"
->0x06		byte		1		(disc 2)
->0x06		byte		2		(disc 3)
->0x06		byte		3		(disc 4)
+0x1C	belong	0xC2339F3D	Nintendo GameCube disc image:
+>0	use	nintendo-gcn-disc-common
 
 # Type: Nintendo Wii disc image
 # From: David Korth <gerbilsoft@gerbilsoft.com>
 # Reference: http://wiibrew.org/wiki/Wii_Disc
-0x18		belong		0x5D1C9EA3	Nintendo Wii disc image:
->0x00		string		x		%.6s
->0x20		string		x		- "%.64s"
->0x06		byte		1		(disc 2)
->0x06		byte		2		(disc 3)
->0x06		byte		3		(disc 4)
+0x18	belong	0x5D1C9EA3	Nintendo Wii disc image:
+>0	use	nintendo-gcn-disc-common
 
 # Type: Nintendo Wii disc image (WBFS format)
 # From: David Korth <gerbilsoft@gerbilsoft.com>
 # Reference: http://wiibrew.org/wiki/Wii_Disc
-0		string		WBFS
->0x218		belong		0x5D1C9EA3	Nintendo Wii disc image (WBFS format):
->>0x200		string		x		%.6s
->>0x220		string		x		- "%.64s"
->>0x206		byte		1		(disc 2)
->>0x206		byte		2		(disc 3)
->>0x206		byte		3		(disc 4)
+0	string	WBFS
+>0x218	belong	0x5D1C9EA3	Nintendo Wii disc image (WBFS format):
+>>0x200	use	nintendo-gcn-disc-common
 
 #------------------------------------------------------------------------------
 # Nintendo 3DS file formats.
