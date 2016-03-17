@@ -356,10 +356,11 @@
 0	name	nintendo-gcn-disc-common
 >0x20	string	x	"%.64s"
 >0x00	string	x	(%.6s
+>0x06	byte	>0
+>>0x06	byte	1	\b, Disc 2
+>>0x06	byte	2	\b, Disc 3
+>>0x06	byte	3	\b, Disc 4
 >0x07	byte	x	\b, Rev.%02u)
->0x06	byte	1	(disc 2)
->0x06	byte	2	(disc 3)
->0x06	byte	3	(disc 4)
 
 # Type: Nintendo GameCube disc image
 # From: David Korth <gerbilsoft@gerbilsoft.com>
