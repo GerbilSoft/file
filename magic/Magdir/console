@@ -370,6 +370,7 @@
 >0x100		string		NCCH
 >>0x150		string		x	%.16s
 >>0x112		leshort		x	(v%u)
+>>0x18C		byte		2	(New3DS only)
 
 # Type: Nintendo 3DS "NCSD" image. (game cards and eMMC)
 # From: David Korth <gerbilsoft@gerbilsoft.com>
