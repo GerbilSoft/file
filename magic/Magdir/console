@@ -405,3 +405,8 @@
 >>>0x008	lestring16	x		\b: "%.128s"
 >>>0x188	leshort		!0
 >>>>0x188	lestring16	x		by %.128s
+
+# Type: Nintendo 3DS Homebrew Application.
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+# Refernece: https://3dbrew.org/wiki/3DSX_Format
+0	string	3DSX	Nintendo 3DS Homebrew Application (3DSX)
