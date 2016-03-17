@@ -385,6 +385,13 @@
 >0x118		bequad		0x0102020202000000	Nintendo 3DS eMMC dump (Old3DS)
 >0x118		bequad		0x0102020203000000	Nintendo 3DS eMMC dump (New3DS)
 
+# Type: Nintendo 3DS "NCCH" container.
+# https://www.3dbrew.org/wiki/NCCH
+0x100	string	NCCH		Nintendo 3DS
+>0x18D	byte&2	0		File Archive (CFA):
+>0x18D	byte&2	1		Executable Image (CXI):
+>0	use	nintendo-3ds-NCCH
+
 # Type: Nintendo 3DS "SMDH" file. (application description)
 # From: David Korth <gerbilsoft@gerbilsoft.com>
 # Reference: https://3dbrew.org/wiki/SMDH
