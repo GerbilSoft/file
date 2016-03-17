@@ -133,11 +133,21 @@
 #
 0 belong 0x37804012    V64 Nintendo 64 ROM dump
 
+#------------------------------------------------------------------------------
+# gba: file(1) magic for the Nintendo Game Boy Advance raw ROM format
+# Reference: http://problemkaputt.de/gbatek.htm#gbacartridgeheader
+#
+# Original version from: "Nelson A. de Oliveira" <naoliv@gmail.com>
+# Updated version from: David Korth <gerbilsoft@gerbilsoft.com>
+#
+4	bequad	0x24FFAE51699AA221	Game Boy Advance ROM image:
+>0xA0	string	x	"%.12s"
+>0xAC	string	x	(%.6s
+>0xBC	byte	x	\b, Rev.%02u)
+
 # From: "Nelson A. de Oliveira" <naoliv@gmail.com>
 # Nintendo .nds
 192	string	\044\377\256Qi\232	Nintendo DS Game ROM Image
-# Nintendo .gba
-0	string	\056\000\000\352$\377\256Qi	Nintendo Game Boy Advance ROM Image
 
 #------------------------------------------------------------------------------
 # msx: file(1) magic for MSX game cartridge dumps
