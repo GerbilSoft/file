@@ -59,6 +59,7 @@
 >0x147 byte 0xFE  [Hudson HuC-3]
 >0x147 byte 0xFF  [Hudson HuC-1]
 
+# ROM size.
 >0x148 byte 0     \b, ROM: 256Kbit
 >0x148 byte 1     \b, ROM: 512Kbit
 >0x148 byte 2     \b, ROM: 1Mbit
@@ -66,14 +67,17 @@
 >0x148 byte 4     \b, ROM: 4Mbit
 >0x148 byte 5     \b, ROM: 8Mbit
 >0x148 byte 6     \b, ROM: 16Mbit
+>0x148 byte 7     \b, ROM: 32Mbit
 >0x148 byte 0x52  \b, ROM: 9Mbit
 >0x148 byte 0x53  \b, ROM: 10Mbit
 >0x148 byte 0x54  \b, ROM: 12Mbit
 
+# RAM size.
 >0x149 byte 1     \b, RAM: 16Kbit
 >0x149 byte 2     \b, RAM: 64Kbit
 >0x149 byte 3     \b, RAM: 128Kbit
 >0x149 byte 4     \b, RAM: 1Mbit
+>0x149 byte 5     \b, RAM: 512Kbit
 
 #------------------------------------------------------------------------------
 # genesis:  file(1) magic for the Sega MegaDrive/Genesis raw ROM format
