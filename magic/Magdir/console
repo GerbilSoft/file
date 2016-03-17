@@ -145,9 +145,19 @@
 >0xAC	string	x	(%.6s
 >0xBC	byte	x	\b, Rev.%02u)
 
-# From: "Nelson A. de Oliveira" <naoliv@gmail.com>
-# Nintendo .nds
-192	string	\044\377\256Qi\232	Nintendo DS Game ROM Image
+#------------------------------------------------------------------------------
+# nds: file(1) magic for the Nintendo DS(i) raw ROM format
+# Reference: http://problemkaputt.de/gbatek.htm#dscartridgeheader
+#
+# Original version from: "Nelson A. de Oliveira" <naoliv@gmail.com>
+# Updated version from: David Korth <gerbilsoft@gerbilsoft.com>
+#
+0xC0	bequad	0x24FFAE51699AA221	Nintendo DS ROM image:
+>0x00	string	x		"%.12s"
+>0x0C	string	x		(%.6s
+>0x1E	byte	x		\b, Rev.%02u)
+>0x12	byte	2		(DSi enhanced)
+>0x12	byte	3		(DSi only)
 
 #------------------------------------------------------------------------------
 # msx: file(1) magic for MSX game cartridge dumps
