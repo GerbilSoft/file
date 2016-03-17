@@ -17,32 +17,42 @@
 
 #------------------------------------------------------------------------------
 # gameboy:  file(1) magic for the Nintendo (Color) Gameboy raw ROM format
+# Reference: http://gbdev.gg8.se/wiki/articles/The_Cartridge_Header
 #
-0x104 belong 0xCEED6666 Gameboy ROM:
->0x134 string >\0 "%.16s"
->0x146 byte 0x03  \b,[SGB]
+0x104	bequad	0xCEED6666CC0D000B	Game Boy ROM image:
+>0x134	string	>\0			"%.16s"
+
+# Machine check. (SGB, CGB, SGB+CGB)
+>0x14b		byte		0x33
+>>0x146		byte		0x03
+>>>0x143	byte&0x80	0x80	\b, [SGB+CGB]
+>>>0x143	byte&0x80	!0x80	\b, [SGB]
+>>0x146		byte		!0x33
+>>>0x143	byte&0xC0	0x80	\b, [CGB]
+>>>0x143	byte&0xC0	0xC0	\b, [CGB ONLY]
+
 >0x147 byte 0x00  \b, [ROM ONLY]
->0x147 byte 0x01  \b, [ROM+MBC1]
->0x147 byte 0x02  \b, [ROM+MBC1+RAM]
->0x147 byte 0x03  \b, [ROM+MBC1+RAM+BATT]
->0x147 byte 0x05  \b, [ROM+MBC2]
->0x147 byte 0x06  \b, [ROM+MBC2+BATTERY]
+>0x147 byte 0x01  \b, [MBC1]
+>0x147 byte 0x02  \b, [MBC1+RAM]
+>0x147 byte 0x03  \b, [MBC1+RAM+BATT]
+>0x147 byte 0x05  \b, [MBC2]
+>0x147 byte 0x06  \b, [MBC2+BATTERY]
 >0x147 byte 0x08  \b, [ROM+RAM]
 >0x147 byte 0x09  \b, [ROM+RAM+BATTERY]
->0x147 byte 0x0B  \b, [ROM+MMM01]
->0x147 byte 0x0C  \b, [ROM+MMM01+SRAM]
->0x147 byte 0x0D  \b, [ROM+MMM01+SRAM+BATT]
->0x147 byte 0x0F  \b, [ROM+MBC3+TIMER+BATT]
->0x147 byte 0x10  \b, [ROM+MBC3+TIMER+RAM+BATT]
->0x147 byte 0x11  \b, [ROM+MBC3]
->0x147 byte 0x12  \b, [ROM+MBC3+RAM]
->0x147 byte 0x13  \b, [ROM+MBC3+RAM+BATT]
->0x147 byte 0x19  \b, [ROM+MBC5]
->0x147 byte 0x1A  \b, [ROM+MBC5+RAM]
->0x147 byte 0x1B  \b, [ROM+MBC5+RAM+BATT]
->0x147 byte 0x1C  \b, [ROM+MBC5+RUMBLE]
->0x147 byte 0x1D  \b, [ROM+MBC5+RUMBLE+SRAM]
->0x147 byte 0x1E  \b, [ROM+MBC5+RUMBLE+SRAM+BATT]
+>0x147 byte 0x0B  \b, [MMM01]
+>0x147 byte 0x0C  \b, [MMM01+SRAM]
+>0x147 byte 0x0D  \b, [MMM01+SRAM+BATT]
+>0x147 byte 0x0F  \b, [MBC3+TIMER+BATT]
+>0x147 byte 0x10  \b, [MBC3+TIMER+RAM+BATT]
+>0x147 byte 0x11  \b, [MBC3]
+>0x147 byte 0x12  \b, [MBC3+RAM]
+>0x147 byte 0x13  \b, [MBC3+RAM+BATT]
+>0x147 byte 0x19  \b, [MBC5]
+>0x147 byte 0x1A  \b, [MBC5+RAM]
+>0x147 byte 0x1B  \b, [MBC5+RAM+BATT]
+>0x147 byte 0x1C  \b, [MBC5+RUMBLE]
+>0x147 byte 0x1D  \b, [MBC5+RUMBLE+SRAM]
+>0x147 byte 0x1E  \b, [MBC5+RUMBLE+SRAM+BATT]
 >0x147 byte 0x1F  \b, [Pocket Camera]
 >0x147 byte 0xFD  \b, [Bandai TAMA5]
 >0x147 byte 0xFE  \b, [Hudson HuC-3]
