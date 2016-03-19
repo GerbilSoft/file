@@ -1361,3 +1361,49 @@
 0		string		farbfeld	farbfeld image data,
 >8		ubelong		x		%dx
 >12		ubelong		x		\b%d
+
+# Type: Sega PVR image.
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+# References:
+# - http://fabiensanglard.net/Mykaruga/tools/segaPVRFormat.txt
+# - https://github.com/yazgoo/pvrx2png
+# - https://github.com/nickworonekin/puyotools
+
+# PVR header.
+0	name	sega-pvr-image-header
+# FIXME: Width/height seems to be off...
+>0x0C	leshort	x	%d x
+>0x0E	leshort	x	%d
+# Image format.
+>0x08	byte	0	\b, ARGB1555
+>0x08	byte	1	\b, RGB565
+>0x08	byte	2	\b, ARGB4444
+>0x08	byte	3	\b, YUV442
+>0x08	byte	4	\b, Bump
+>0x08	byte	5	\b, 4bpp
+>0x08	byte	6	\b, 8bpp
+# Image data type.
+>0x09	byte	0x01	\b, square twiddled
+>0x09	byte	0x02	\b, square twiddled & mipmap
+>0x09	byte	0x03	\b, VQ
+>0x09	byte	0x04	\b, VQ & mipmap
+>0x09	byte	0x05	\b, 8-bit CLUT twiddled
+>0x09	byte	0x06	\b, 4-bit CLUT twiddled
+>0x09	byte	0x07	\b, 8-bit direct twiddled
+>0x09	byte	0x08	\b, 4-bit direct twiddled
+>0x09	byte	0x09	\b, rectangle
+>0x09	byte	0x0B	\b, rectangular stride
+>0x09	byte	0x0D	\b, rectangular twiddled
+>0x09	byte	0x10	\b, small VQ
+>0x09	byte	0x11	\b, small VQ & mipmap
+>0x09	byte	0x12	\b, square twiddled & mipmap
+
+# Sega PVR image.
+0	string	PVRT	Sega PVR image:
+>0x10	use	sega-pvr-image-header
+
+# Sega PVR image with GBIX.
+0	string	GBIX
+>0x10	string	PVRT	Sega PVR image:
+>>0x08	lelong	x	global index = 0x%08X,
+>>0x10	use	sega-pvr-image-header
