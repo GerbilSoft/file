@@ -1405,7 +1405,7 @@
 # Sega PVR image with GBIX.
 0	string	GBIX
 >0x10	string	PVRT	Sega PVR image:
->>0x08	lelong	x	global index = 0x%08X,
+>>0x08	lelong	x	global index = %u,
 >>0x10	use	sega-pvr-image-header
 
 # Sega GVR image.
@@ -1415,5 +1415,5 @@
 # Sega GVR image with GBIX.
 0	string	GBIX
 >0x10	string	GVRT	Sega GVR image:
->>0x08	belong	x	global index = 0x%08X,
+>>0x08	belong	x	global index = %u,
 >>0x10	use	\^sega-pvr-image-header
