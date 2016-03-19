@@ -84,12 +84,39 @@
 >0x149 byte 5     \b, RAM: 512Kbit
 
 #------------------------------------------------------------------------------
-# genesis:  file(1) magic for the Sega MegaDrive/Genesis raw ROM format
+# genesis: file(1) magic for various Sega Mega Drive / Genesis ROM image and disc formats
+# Updated by David Korth <gerbilsoft@gerbilsoft.com>
+# References:
+# - http://www.retrodev.com/segacd.html
+# - http://devster.monkeeh.com/sega/32xguide1.txt
 #
-0x100 string SEGA  Sega MegaDrive/Genesis raw ROM dump
->0x120 string >\0 Name: "%.16s"
->0x110 string >\0 %.16s
->0x1B0 string RA with SRAM
+
+# Common Sega Mega Drive header format.
+# FIXME: Name fields are 48 bytes, but have spaces for padding instead of 00s.
+0		name	sega-mega-drive-header
+# ROM title. (Use domestic if present; if not, use international.)
+>0x120		byte	>0x20
+>>0x120		string	>\0	\b: "%.16s"
+>0x120		byte	<0x21
+>>0x150		string	>\0	\b: "%.16s"
+# Other information.
+>0x180		string	>\0	(%.14s
+>>0x110		string  >\0	\b, %.16s
+>0x180		byte	0
+>>0x110		string  >\0	(%.16s
+>0		byte	x	\b)
+
+# Sega Mega Drive, 32X, Pico, and Mega CD Boot ROM images.
+0x100		string	SEGA
+>0x3C0		bequad	0x4D41525320434845	Sega 32X ROM image
+>>0		use	sega-mega-drive-header
+>0x3C0		bequad	!0x4D41525320434845
+>>0x105		belong	0x5049434F	Sega Pico ROM image
+>>>0		use	sega-mega-drive-header
+>>0x105		belong	!0x5049434F
+>>>0x180	beshort	0x4252		Sega Mega CD Boot ROM image
+>>>0x180	beshort	!0x4252		Sega Mega Drive / Genesis ROM image
+>>>0		use	sega-mega-drive-header
 
 #------------------------------------------------------------------------------
 # genesis:  file(1) magic for the Super MegaDrive ROM dump format
