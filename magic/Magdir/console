@@ -232,6 +232,19 @@
 >0x12	byte	3		(DSi only)
 
 #------------------------------------------------------------------------------
+# ngp: file(1) magic for the Neo Geo Pocket (Color) raw ROM format.
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+# References:
+# - https://neogpc.googlecode.com/svn-history/r10/trunk/src/core/neogpc.cpp
+# - http://www.devrs.com/ngp/files/ngpctech.txt
+#
+0x0A	string	BY\ SNK\ CORPORATION	Neo Geo Pocket
+>0x23	byte	0x10			Color
+>0	byte	x			ROM image
+>0x24	string	>\0			\b: "%.12s"
+>0x1F	byte	0xFF			(debug mode enabled)
+
+#------------------------------------------------------------------------------
 # msx: file(1) magic for MSX game cartridge dumps
 # Too simple - MPi
 #0 beshort 0x4142 MSX game cartridge dump 
