@@ -110,19 +110,54 @@
 >9 byte 0xBB
 
 #------------------------------------------------------------------------------
-# smsgg:  file(1) magic for Sega Master System and Game Gear ROM dumps
+# smsgg:  file(1) magic for Sega Master System and Game Gear ROM images
+# Detects all Game Gear and export Sega Master System ROM images,
+# and some Japanese Sega Master System ROM images.
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+# Reference: http://www.smspower.org/Development/ROMHeader
 #
-# Does not detect all images.  Very preliminary guesswork.  Need more data
-# on format.
-#
-# FIXME: need a little more info...;P
-#
-#0 byte 0xF3
-#>1 byte 0xED  Sega Master System/Game Gear ROM dump
-#>1 byte 0x31  Sega Master System/Game Gear ROM dump
-#>1 byte 0xDB  Sega Master System/Game Gear ROM dump
-#>1 byte 0xAF  Sega Master System/Game Gear ROM dump
-#>1 byte 0xC3  Sega Master System/Game Gear ROM dump
+0x7FF0		string		TMR\ SEGA
+# Machine type.
+>0x7FFF		byte&0xF0	0x30	Sega Master System
+>0x7FFF		byte&0xF0	0x40	Sega Master System
+>0x7FFF		byte&0xF0	0x50	Sega Game Gear
+>0x7FFF		byte&0xF0	0x60	Sega Game Gear
+>0x7FFF		byte&0xF0	0x70	Sega Game Gear
+>0x7FFF		byte&0xF0	<0x30	Sega Master System / Game Gear
+>0x7FFF		byte&0xF0	>0x70	Sega Master System / Game Gear
+>0		byte		x	ROM image:
+# Product code.
+>0x7FFE		byte&0xF0	0x10	1
+>0x7FFE		byte&0xF0	0x20	2
+>0x7FFE		byte&0xF0	0x30	3
+>0x7FFE		byte&0xF0	0x40	4
+>0x7FFE		byte&0xF0	0x50	5
+>0x7FFE		byte&0xF0	0x60	6
+>0x7FFE		byte&0xF0	0x70	7
+>0x7FFE		byte&0xF0	0x80	8
+>0x7FFE		byte&0xF0	0x90	9
+>0x7FFE		byte&0xF0	0xA0	10
+>0x7FFE		byte&0xF0	0xB0	11
+>0x7FFE		byte&0xF0	0xC0	12
+>0x7FFE		byte&0xF0	0xD0	13
+>0x7FFE		byte&0xF0	0xE0	14
+>0x7FFE		byte&0xF0	0xF0	15
+>0x7FFE		byte&0xF0	!0
+>>0x7FFC	leshort		x	\b%04x
+>0x7FFE		byte&0xF0	0
+>>0x7FFC	leshort		x	%04x
+# Revision.
+>0x7FFE		byte&0x0F	x	(Rev.%02d)
+# ROM size. (Used for the boot ROM checksum routine.)
+>0x7FFF		byte&0x0F	0x0A	(8 KB)
+>0x7FFF		byte&0x0F	0x0B	(16 KB)
+>0x7FFF		byte&0x0F	0x0C	(32 KB)
+>0x7FFF		byte&0x0F	0x0D	(48 KB)
+>0x7FFF		byte&0x0F	0x0E	(64 KB)
+>0x7FFF		byte&0x0F	0x0F	(128 KB)
+>0x7FFF		byte&0x0F	0x00	(256 KB)
+>0x7FFF		byte&0x0F	0x01	(512 KB)
+>0x7FFF		byte&0x0F	0x02	(1 MB)
 
 #------------------------------------------------------------------------------
 # dreamcast:  file(1) uncertain magic for the Sega Dreamcast VMU image format
