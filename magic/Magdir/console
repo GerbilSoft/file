@@ -233,6 +233,12 @@
 >0x12	byte	3		(DSi only)
 
 #------------------------------------------------------------------------------
+# nds_passme: file(1) magic for Nintendo DS ROM images for GBA cartridge boot.
+# This is also used for loading .nds files using the MSET exploit on 3DS.
+# Reference: https://github.com/devkitPro/ndstool/blob/master/source/ndscreate.cpp
+0xC0	bequad	0xC8604FE201708FE2	Nintendo DS Slot-2 ROM image (PassMe)
+
+#------------------------------------------------------------------------------
 # ngp: file(1) magic for the Neo Geo Pocket (Color) raw ROM format.
 # From: David Korth <gerbilsoft@gerbilsoft.com>
 # References:
