@@ -241,6 +241,30 @@
 >0	byte	x			(2352-byte sectors)
 
 #------------------------------------------------------------------------------
+# dreamcast: file(1) magic for the Sega Dreamcast disc image format.
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+# Reference: http://mc.pp.se/dc/ip0000.bin.html
+#
+
+# Common Sega Dreamcast disc header format.
+# NOTE: Title is 128 bytes, but we're only showing 32 due to space padding.
+# TODO: Release date, device information, region code, others?
+0	name	sega-dreamcast-disc-header
+>0x80	string	>\0	\b: "%.32s"
+>0x40	string	>\0	(%.10s
+>>0x4A	string	>\0	\b, %.6s)
+>>0x4A	byte	0	\b)
+
+# 2048-byte sector version.
+0	string	SEGA\ SEGAKATANA\ 	Sega Dreamcast disc image
+>0	use	sega-dreamcast-disc-header
+>0	byte	x			(2048-byte sectors)
+# 2352-byte sector version.
+0x10	string	SEGA\ SEGAKATANA\ 	Sega Dreamcast disc image
+>0x10	use	sega-dreamcast-disc-header
+>0	byte	x			(2352-byte sectors)
+
+#------------------------------------------------------------------------------
 # dreamcast:  file(1) uncertain magic for the Sega Dreamcast VMU image format
 #
 0 belong 0x21068028   Sega Dreamcast VMU game image
