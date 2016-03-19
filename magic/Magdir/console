@@ -594,3 +594,18 @@
 # From: David Korth <gerbilsoft@gerbilsoft.com>
 # Refernece: https://3dbrew.org/wiki/3DSX_Format
 0	string	3DSX	Nintendo 3DS Homebrew Application (3DSX)
+
+#------------------------------------------------------------------------------
+# a7800: file(1) magic for the Atari 7800 raw ROM format.
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+# Reference: https://sites.google.com/site/atari7800wiki/a78-header
+
+0	byte	>0
+>0	byte	<3
+>>1	string	ATARI7800	Atari 7800 ROM image
+>>>0x11	string	>\0	\b: "%.32s"
+# Display type.
+>>>0x39	byte	0	(NTSC)
+>>>0x39	byte	1	(PAL)
+>>>0x36	byte&1	1	(POKEY)
+
