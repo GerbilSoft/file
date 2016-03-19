@@ -1369,9 +1369,8 @@
 # - https://github.com/yazgoo/pvrx2png
 # - https://github.com/nickworonekin/puyotools
 
-# PVR header.
+# Sega PVR header.
 0	name	sega-pvr-image-header
-# FIXME: Width/height seems to be off...
 >0x0C	leshort	x	%d x
 >0x0E	leshort	x	%d
 # Image format.
@@ -1408,12 +1407,28 @@
 >>0x08	lelong	x	global index = %u,
 >>0x10	use	sega-pvr-image-header
 
+# Sega GVR header.
+0	name	sega-gvr-image-header
+>0x0C	beshort	x	%d x
+>0x0E	beshort	x	%d
+# Image data format.
+>0x0B	byte	0	\b, I4
+>0x0B	byte	1	\b, I8
+>0x0B	byte	2	\b, IA4
+>0x0B	byte	3	\b, IA8
+>0x0B	byte	4	\b, RGB565
+>0x0B	byte	5	\b, RGB5A3
+>0x0B	byte	6	\b, ARGB8888
+>0x0B	byte	8	\b, CI4
+>0x0B	byte	9	\b, CI8
+>0x0B	byte	14	\b, DXT1
+
 # Sega GVR image.
 0	string	GVRT	Sega GVR image:
->0x10	use	sega-pvr-image-header
+>0x10	use	sega-gvr-image-header
 
 # Sega GVR image with GBIX.
 0	string	GBIX
 >0x10	string	GVRT	Sega GVR image:
 >>0x08	belong	x	global index = %u,
->>0x10	use	\^sega-pvr-image-header
+>>0x10	use	sega-gvr-image-header
