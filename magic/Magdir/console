@@ -119,23 +119,25 @@
 >>>0		use	sega-mega-drive-header
 
 #------------------------------------------------------------------------------
-# genesis:  file(1) magic for the Super MegaDrive ROM dump format
+# genesis: file(1) magic for the Super MegaDrive ROM dump format
 #
-0x280 string EAGN  Super MagicDrive ROM dump
->0 byte x %dx16k blocks
->2 byte 0 \b, last in series or standalone
->2 byte >0 \b, split ROM
->8 byte 0xAA
->9 byte 0xBB
 
-#------------------------------------------------------------------------------
-# genesis:  file(1) alternate magic for the Super MegaDrive ROM dump format
-#
-0x280 string EAMG  Super MagicDrive ROM dump
->0 byte x %dx16k blocks
->2 byte x \b, last in series or standalone
->8 byte 0xAA
->9 byte 0xBB
+# NOTE: Due to interleaving, we can't display anything
+# other than the copier header information.
+0      name    sega-genesis-smd-header
+>0     byte    x       %dx16k blocks
+>2     byte    0       \b, last in series or standalone
+>2     byte    >0      \b, split ROM
+
+# "Sega Genesis" header.
+0x280	string EAGN
+>8	beshort	0xAABB	Sega Mega Drive / Genesis ROM image (SMD format):
+>>0	use     sega-genesis-smd-header
+
+# "Sega Mega Drive" header.
+0x280	string EAMG
+>8	beshort	0xAABB	Sega Mega Drive / Genesis ROM image (SMD format):
+>>0	use     sega-genesis-smd-header
 
 #------------------------------------------------------------------------------
 # smsgg:  file(1) magic for Sega Master System and Game Gear ROM images
