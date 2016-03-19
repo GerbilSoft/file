@@ -106,6 +106,22 @@
 >>0x110		string  >\0	(%.16s
 >0		byte	x	\b)
 
+# TODO: Check for 32X CD?
+# Sega Mega CD disc images: 2048-byte sectors.
+0	string	SEGADISCSYSTEM\ \ 	Sega Mega CD disc image
+>0	use	sega-mega-drive-header
+>0	byte	x			\b, 2048-byte sectors
+0	string	SEGABOOTDISC\ \ \ \ 	Sega Mega CD disc image
+>0	use	sega-mega-drive-header
+>0	byte	x			\b, 2048-byte sectors
+# Sega Mega CD disc images: 2352-byte sectors.
+0x10	string	SEGADISCSYSTEM\ \ 	Sega Mega CD disc image
+>0x10	use	sega-mega-drive-header
+>0	byte	x			\b, 2352-byte sectors
+0x10	string	SEGABOOTDISC\ \ \ \ 	Sega Mega CD disc image
+>0x10	use	sega-mega-drive-header
+>0	byte	x			\b, 2352-byte sectors
+
 # Sega Mega Drive, 32X, Pico, and Mega CD Boot ROM images.
 0x100		string	SEGA
 >0x3C0		bequad	0x4D41525320434845	Sega 32X ROM image
