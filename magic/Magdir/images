@@ -1397,14 +1397,27 @@
 >0x09	byte	0x11	\b, small VQ & mipmap
 >0x09	byte	0x12	\b, square twiddled & mipmap
 
+# Sega PVR (Xbox) image header.
+# Contains an embedded DirectDraw surface instead of PVR data.
+0	name	sega-pvr-xbox-dds-header
+>16	lelong	x	%d x
+>12	lelong	x	%d,
+>84	string	x	%.4s
+
 # Sega PVR image.
-0	string	PVRT	Sega PVR image:
->0	use	sega-pvr-image-header
+0	string	PVRT
+>0x10	string	DDS\040\174\000\000\000 Sega PVR (Xbox) image:
+>>0x20	use	sega-pvr-xbox-dds-header
+>0x10	belong	!0x44445320		Sega PVR image:
+>>0	use	sega-pvr-image-header
 
 # Sega PVR image with GBIX.
 0	string	GBIX
->0x10	string	PVRT	Sega PVR image:
->>0x10	use	sega-pvr-image-header
+>0x10	string	PVRT
+>>0x10	string	DDS\040\174\000\000\000 Sega PVR (Xbox) image:
+>>>0x20	use	sega-pvr-xbox-dds-header
+>>0x10	belong	!0x44445320		Sega PVR image:
+>>>0x10	use	sega-pvr-image-header
 >>0x08	lelong	x	\b, global index = %u
 
 # Sega GVR header.
