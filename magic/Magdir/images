@@ -1399,7 +1399,7 @@
 
 # Sega PVR image.
 0	string	PVRT	Sega PVR image:
->0x10	use	sega-pvr-image-header
+>0	use	sega-pvr-image-header
 
 # Sega PVR image with GBIX.
 0	string	GBIX
