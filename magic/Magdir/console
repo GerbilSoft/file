@@ -44,6 +44,18 @@
 >>12	byte&0x02	=0x2		[NTSC+PAL]
 
 #------------------------------------------------------------------------------
+# unif: file(1) magic for UNIF-format Nintendo Entertainment System ROM images
+# Reference: http://wiki.nesdev.com/w/index.php/UNIF
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+# TODO commit on 2016/03/21
+#
+# NOTE: The UNIF format uses chunks instead of a fixed header,
+# so most of the data isn't easily parseable.
+#
+0	string	UNIF
+4	lelong	<16	UNIF v%d format NES ROM image
+
+#------------------------------------------------------------------------------
 # gameboy: file(1) magic for the Nintendo (Color) Gameboy raw ROM format
 # Reference: http://gbdev.gg8.se/wiki/articles/The_Cartridge_Header
 #
