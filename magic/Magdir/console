@@ -3,17 +3,45 @@
 # $File: console,v 1.22 2015/11/13 00:50:40 christos Exp $
 # Console game magic
 # Toby Deshane <hac@shoelace.digivill.net>
-#    ines:  file(1) magic for Marat's iNES Nintendo Entertainment System
-#           ROM dump format
 
-0 string NES\032 iNES ROM dump,
->4 byte  x     %dx16k PRG
->5 byte  x     \b, %dx8k CHR
->6 byte&0x01  =0x1  \b, [Vert.]
->6 byte&0x01  =0x0  \b, [Horiz.]
->6 byte&0x02  =0x2  \b, [SRAM]
->6 byte&0x04  =0x4  \b, [Trainer]
->6 byte&0x04  =0x8  \b, [4-Scr]
+# ines: file(1) magic for Marat's iNES Nintendo Entertainment System ROM dump format
+# Updated by David Korth <gerbilsoft@gerbilsoft.com>
+# References:
+# - http://wiki.nesdev.com/w/index.php/INES
+# - http://wiki.nesdev.com/w/index.php/NES_2.0
+0	string		NES\x1A		iNES ROM image
+>7	byte&0x0C	=0x8		(NES 2.0)
+>4	byte		x		\b: %ux16k PRG
+>5	byte		x		\b, %ux16k CHR
+>6	byte&0x08	=0x8		[4-Scr]
+>6	byte&0x09	=0x0		[H-mirror]
+>6	byte&0x09	=0x1		[V-mirror]
+>6	byte&0x02	=0x2		[SRAM]
+>6	byte&0x04	=0x4		[Trainer]
+>7	byte&0x03	=0x2		[PC10]
+>7	byte&0x03	=0x1		[VS
+>>7	byte&0x0C	=0x8
+# NES 2.0: VS PPU
+>>>13	byte&0x0F	=0x0		\b, RP2C03B
+>>>13	byte&0x0F	=0x1		\b, RP2C03G
+>>>13	byte&0x0F	=0x2		\b, RP2C04-0001
+>>>13	byte&0x0F	=0x3		\b, RP2C04-0002
+>>>13	byte&0x0F	=0x4		\b, RP2C04-0003
+>>>13	byte&0x0F	=0x5		\b, RP2C04-0004
+>>>13	byte&0x0F	=0x6		\b, RP2C03B
+>>>13	byte&0x0F	=0x7		\b, RP2C03C
+>>>13	byte&0x0F	=0x8		\b, RP2C05-01
+>>>13	byte&0x0F	=0x9		\b, RP2C05-02
+>>>13	byte&0x0F	=0xA		\b, RP2C05-03
+>>>13	byte&0x0F	=0xB		\b, RP2C05-04
+>>>13	byte&0x0F	=0xC		\b, RP2C05-05
+# TODO: VS protection hardware?
+>>7	byte		x		\b]
+# NES 2.0-specific flags.
+>7	byte&0x0C	=0x8
+>>12	byte&0x03	=0x0		[NTSC]
+>>12	byte&0x03	=0x1		[PAL]
+>>12	byte&0x02	=0x2		[NTSC+PAL]
 
 #------------------------------------------------------------------------------
 # gameboy: file(1) magic for the Nintendo (Color) Gameboy raw ROM format
