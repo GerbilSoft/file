@@ -591,6 +591,7 @@
 # Reference: https://www.3dbrew.org/wiki/NCSD
 0x100		string		NCSD
 >0x118		lequad		0		Nintendo 3DS Game Card image
+# NCCH header for partition 0. (game data)
 >>0x1150	string		>\0	\b: "%.16s"
 >>0x312		byte		x	(Rev.%02u)
 >>0x118C	byte		2	(New3DS only)
