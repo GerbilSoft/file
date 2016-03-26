@@ -53,7 +53,7 @@
 # so most of the data isn't easily parseable.
 #
 0	string	UNIF
-4	lelong	<16	UNIF v%d format NES ROM image
+>4	lelong	<16	UNIF v%u format NES ROM image
 
 #------------------------------------------------------------------------------
 # gameboy: file(1) magic for the Nintendo (Color) Gameboy raw ROM format
