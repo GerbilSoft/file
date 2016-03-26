@@ -604,12 +604,18 @@
 
 # Type: Nintendo 3DS "NCCH" container.
 # https://www.3dbrew.org/wiki/NCCH
-0x100	string	NCCH		Nintendo 3DS
->0x18D	byte&2	0		File Archive (CFA)
->0x18D	byte&2	2		Executable Image (CXI)
->0x150		string		>\0	\b: "%.16s"
->0x112		leshort		x	(v%u)
->0x18C		byte		2	(New3DS only)
+0x100		string	NCCH	Nintendo 3DS
+>0x18D		byte&2	0	File Archive (CFA)
+>0x18D		byte&2	2	Executable Image (CXI)
+>0x150		string	>\0	\b: "%.16s"
+>0x18D		byte	0x05
+>>0x10E		leshort	x	(Old3DS System Update v%u)
+>0x18D		byte	0x15
+>>0x10E		leshort	x	(New3DS System Update v%u)
+>0x18D		byte	!0x05
+>>0x18D		byte	!0x15
+>>>0x112	leshort	x	(v%u)
+>0x18C		byte	2	(New3DS only)
 
 # Type: Nintendo 3DS "SMDH" file. (application description)
 # From: David Korth <gerbilsoft@gerbilsoft.com>
