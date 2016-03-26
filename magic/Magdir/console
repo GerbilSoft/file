@@ -602,6 +602,54 @@
 >0x118		bequad		0x0102020202000000	Nintendo 3DS eMMC dump (Old3DS)
 >0x118		bequad		0x0102020203000000	Nintendo 3DS eMMC dump (New3DS)
 
+# Nintendo 3DS version code.
+# Reference: https://www.3dbrew.org/wiki/Titles
+# Format: leshort containing three fields:
+# - 6-bit: Major
+# - 6-bit: Minor
+# - 4-bit: Revision
+# NOTE: Only supporting major/minor versions from 0-15 right now.
+# NOTE: Should be prefixed with "v".
+0	name	nintendo-3ds-version-code
+# Raw version.
+>0	leshort	x	\b%u,
+# Major version.
+>0	leshort&0xFC00	0x0000	0
+>0	leshort&0xFC00	0x0400	1
+>0	leshort&0xFC00	0x0800	2
+>0	leshort&0xFC00	0x0C00	3
+>0	leshort&0xFC00	0x1000	4
+>0	leshort&0xFC00	0x1400	5
+>0	leshort&0xFC00	0x1800	6
+>0	leshort&0xFC00	0x1C00	7
+>0	leshort&0xFC00	0x2000	8
+>0	leshort&0xFC00	0x2400	9
+>0	leshort&0xFC00	0x2800	10
+>0	leshort&0xFC00	0x2C00	11
+>0	leshort&0xFC00	0x3000	12
+>0	leshort&0xFC00	0x3400	13
+>0	leshort&0xFC00	0x3800	14
+>0	leshort&0xFC00	0x3C00	15
+# Minor version.
+>0	leshort&0x03F0	0x0000	\b.0
+>0	leshort&0x03F0	0x0010	\b.1
+>0	leshort&0x03F0	0x0020	\b.2
+>0	leshort&0x03F0	0x0030	\b.3
+>0	leshort&0x03F0	0x0040	\b.4
+>0	leshort&0x03F0	0x0050	\b.5
+>0	leshort&0x03F0	0x0060	\b.6
+>0	leshort&0x03F0	0x0070	\b.7
+>0	leshort&0x03F0	0x0080	\b.8
+>0	leshort&0x03F0	0x0090	\b.9
+>0	leshort&0x03F0	0x00A0	\b.10
+>0	leshort&0x03F0	0x00B0	\b.11
+>0	leshort&0x03F0	0x00C0	\b.12
+>0	leshort&0x03F0	0x00D0	\b.13
+>0	leshort&0x03F0	0x00E0	\b.14
+>0	leshort&0x03F0	0x00F0	\b.15
+# Revision.
+>0	leshort&0x000F	x	\b.%u
+
 # Type: Nintendo 3DS "NCCH" container.
 # https://www.3dbrew.org/wiki/NCCH
 0x100		string	NCCH	Nintendo 3DS
@@ -609,12 +657,18 @@
 >0x18D		byte&2	2	Executable Image (CXI)
 >0x150		string	>\0	\b: "%.16s"
 >0x18D		byte	0x05
->>0x10E		leshort	x	(Old3DS System Update v%u)
+>>0x10E		leshort	x	(Old3DS System Update v
+>>0x10E		use	nintendo-3ds-version-code
+>>0x10E		leshort	x	\b)
 >0x18D		byte	0x15
->>0x10E		leshort	x	(New3DS System Update v%u)
+>>0x10E		leshort	x	(New3DS System Update v
+>>0x10E		use	nintendo-3ds-version-code
+>>0x10E		leshort	x	\b)
 >0x18D		byte	!0x05
 >>0x18D		byte	!0x15
->>>0x112	leshort	x	(v%u)
+>>>0x112	byte	x	(v
+>>>0x112	use	nintendo-3ds-version-code
+>>>0x112	byte	x	\b)
 >0x18C		byte	2	(New3DS only)
 
 # Type: Nintendo 3DS "SMDH" file. (application description)
