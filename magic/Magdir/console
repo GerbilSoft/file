@@ -595,6 +595,15 @@
 0x1C	belong	0xC2339F3D	Nintendo GameCube disc image:
 >0	use	nintendo-gcn-disc-common
 
+# Type: Nintendo GameCube embedded disc image
+# Commonly found on demo discs.
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+# Reference: http://hitmen.c02.at/files/yagcd/yagcd/index.html#idx14.8
+0		belong	0xAE0F38A2
+>0x0C		belong	0x00100000
+>>(8.L+0x1C)	belong	0xC2339F3D	Nintendo GameCube embedded disc image:
+>>>(8.L)	use	nintendo-gcn-disc-common
+
 # Type: Nintendo Wii disc image
 # From: David Korth <gerbilsoft@gerbilsoft.com>
 # Reference: http://wiibrew.org/wiki/Wii_Disc
