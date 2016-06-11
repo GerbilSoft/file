@@ -56,6 +56,32 @@
 >4	lelong	<16	UNIF v%d format NES ROM image
 
 #------------------------------------------------------------------------------
+# fds: file(1) magic for Famciom Disk System disk images
+# Reference: http://wiki.nesdev.com/w/index.php/Family_Computer_Disk_System#.FDS_format
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+# TODO: Check "Disk info block" and get info from that in addition to the optional header.
+
+# Disk info block. (block 1)
+0	name	nintendo-fds-disk-info-block
+>1	string	*NINTENDO-HVC*	Famicom Disk System disk image:
+>23	byte	!1		FMC-
+>23	byte	1		FSC-
+>16	string	x		\b%.3s
+>15	byte	x		\b, mfr 0x%02X
+>20	byte	x		(Rev.%02u)
+
+# Headered version.
+0	string	FDS\x1A
+>0x11	string	*NINTENDO-HVC*
+>>0x10	use	nintendo-fds-disk-info-block
+>4	byte	1	(%u side)
+>4	byte	!1	(%u sides)
+
+# Unheadered version.
+1	string	*NINTENDO-HVC*
+>0	use	nintendo-fds-disk-info-block
+
+#------------------------------------------------------------------------------
 # gameboy: file(1) magic for the Nintendo (Color) Gameboy raw ROM format
 # Reference: http://gbdev.gg8.se/wiki/articles/The_Cartridge_Header
 #
