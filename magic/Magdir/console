@@ -617,6 +617,26 @@
 >0x218	belong	0x5D1C9EA3	Nintendo Wii disc image (WBFS format):
 >>0x200	use	nintendo-gcn-disc-common
 
+# Type: Nintendo GameCube/Wii disc image (CISO format)
+# NOTE: This is NOT the same as Compact ISO or PSP CISO,
+# though it has the same magic number.
+0    string    CISO
+# Other fields are used to determine what type of CISO this is:
+# - 0x04 == 0x00200000: GameCube/Wii CISO (block_size)
+# - 0x10 == 0x00000800: PSP CISO (ISO-9660 sector size)
+# - None of the above: Compact ISO.
+>4		lelong	0x200000
+>>8		byte	1
+>>>0x801C	belong	0xC2339F3D	Nintendo GameCube disc image (CISO format):
+>>>>0x8000	use	nintendo-gcn-disc-common
+>>>0x8018	belong	0x5D1C9EA3	Nintendo Wii disc image (CISO format):
+>>>>0x8000	use	nintendo-gcn-disc-common
+
+# Type: Nintendo GameCube/Wii disc image (GCZ format)
+0	lelong	0xB10BC001
+>4	lelong	0		Nintendo GameCube disc image (GCZ format)
+>4	lelong	1		Nintendo Wii disc image (GCZ format)
+
 #------------------------------------------------------------------------------
 # Nintendo 3DS file formats.
 #
