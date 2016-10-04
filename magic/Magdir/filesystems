@@ -1952,7 +1952,7 @@
 # .cso files
 # Reference: http://pismotec.com/ciso/ciso.h
 # NOTE: There are two other formats with the same magic but
-# completely incompatible specification:
+# completely incompatible specifications:
 # - GameCube/Wii CISO: https://github.com/dolphin-emu/dolphin/blob/master/Source/Core/DiscIO/CISOBlob.h
 # - PSP CISO: https://github.com/jamie/ciso/blob/master/ciso.h
 0    string    CISO
