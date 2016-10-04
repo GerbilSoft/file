@@ -637,6 +637,7 @@
 0	lelong	0xB10BC001
 >4	lelong	0		Nintendo GameCube disc image (GCZ format)
 >4	lelong	1		Nintendo Wii disc image (GCZ format)
+>4	lelong	>1		Nintendo GameCube/Wii disc image (GCZ format)
 
 # Type: Nintendo GameCube/Wii disc image (WDF format)
 0	string	WII\001DISC
