@@ -646,6 +646,15 @@
 >0x58	belong	0x5D1C9EA3	Nintendo Wii disc image (WDF format):
 >>0x38	use	nintendo-gcn-disc-common
 
+# Type: Nintendo GameCube/Wii disc image (WIA format)
+0	string	WIA\001	Nintendo
+>0x48	belong	0	GameCube/Wii
+>0x48	belong	1	GameCube
+>0x48	belong	2	Wii
+>0x48	belong	>2	GameCube/Wii
+>0x48	belong	x	disc image (WIA format):
+>>0x58	use	nintendo-gcn-disc-common
+
 #------------------------------------------------------------------------------
 # Nintendo 3DS file formats.
 #
