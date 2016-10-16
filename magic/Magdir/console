@@ -640,11 +640,19 @@
 >4	lelong	>1		Nintendo GameCube/Wii disc image (GCZ format)
 
 # Type: Nintendo GameCube/Wii disc image (WDF format)
-0	string	WII\001DISC
->0x54	belong	0xC2339F3D	Nintendo GameCube disc image (WDF format):
->>0x38	use	nintendo-gcn-disc-common
->0x58	belong	0x5D1C9EA3	Nintendo Wii disc image (WDF format):
->>0x38	use	nintendo-gcn-disc-common
+0		string	WII\001DISC
+>8		belong	1
+# WDFv1
+>>0x54		belong	0xC2339F3D	Nintendo GameCube disc image (WDFv1 format):
+>>>0x38		use	nintendo-gcn-disc-common
+>>0x58		belong	0x5D1C9EA3	Nintendo Wii disc image (WDFv1 format):
+>>>0x38		use	nintendo-gcn-disc-common
+>8		belong	2
+# WDFv2
+>>(12.L+0x1C)	belong	0xC2339F3D	Nintendo GameCube disc image (WDFv2 format):
+>>>(12.L)	use	nintendo-gcn-disc-common
+>>(12.L+0x18)	belong	0x5D1C9EA3	Nintendo Wii disc image (WDFv2 format):
+>>>(12.L)	use	nintendo-gcn-disc-common
 
 # Type: Nintendo GameCube/Wii disc image (WIA format)
 0	string	WIA\001	Nintendo
