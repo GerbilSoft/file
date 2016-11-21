@@ -796,3 +796,17 @@
 #
 0	string	g\ GCE	Vectrex ROM image
 >0x11	string	>\0	\b: "%.16s"
+
+#------------------------------------------------------------------------------
+# amiibo: file(1) magic for Nintendo amiibo NFC dumps.
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+# Reference: https://www.3dbrew.org/wiki/Amiibo
+0x00		byte	0x04
+>0x0A		beshort	0x0FE0
+>>0x0C		belong	0xF110FFEE
+>>>0x208	beshort	0x0100
+>>>>0x020A	byte	0x0F
+>>>>>0x020C	bequad	0x000000045F000000
+>>>>>>0x5B	byte	0x02
+>>>>>>>0x54	belong	x	Nintendo amiibo NFC dump - amiibo ID: %08X-
+>>>>>>>0x58	belong	x	\b%08X
