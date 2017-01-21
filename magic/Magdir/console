@@ -75,7 +75,7 @@
 >23	byte	!1		FMC-
 >23	byte	1		FSC-
 >16	string	x		\b%.3s
->15	byte	x		\b, mfr 0x%02X
+>15	byte	x		\b, mfr %02X
 >20	byte	x		(Rev.%02u)
 
 # Headered version.
