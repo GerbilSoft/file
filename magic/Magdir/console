@@ -518,11 +518,11 @@
 # Gameboy%20Sound%20System%20(.gbs).txt
 0	string		GBS		Nintendo Gameboy Music/Audio Data
 #12	string		GameBoy\ Music\ Module	Nintendo Gameboy Music Module
->16	string		>\0	("%s" by
->48	string		>\0	%s, copyright
->80	string		>\0	%s),
->3	byte		x	version %d,
->4	byte		x	%d tracks
+>16	string		>\0	("%.32s" by
+>48	string		>\0	%.32s, copyright
+>80	string		>\0	%.32s),
+>3	byte		x	version %u,
+>4	byte		x	%u tracks
 
 # IPS Patch Files from: From: Thomas Klausner <tk@giga.or.at>
 # see http://zerosoft.zophar.net/ips.php
