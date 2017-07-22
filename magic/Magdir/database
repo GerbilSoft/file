@@ -637,3 +637,10 @@
 # Redis RDB - https://redis.io/topics/persistence
 0	string	REDIS			Redis RDB file,
 >5	regex	[0-9][0-9][0-9][0-9]	version %s
+
+# Mork database.
+# Used by older versions of Mozilla Suite and Firefox,
+# and current versions of Thunderbird.
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+0	string	//\ <!--\ <mdb:mork:z\ v="	Mozilla Mork database
+>23	string	x		\b, version %.3s
