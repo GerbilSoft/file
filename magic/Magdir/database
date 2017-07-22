@@ -632,3 +632,10 @@
 >28	lelong	x		\b, entries %d
 >32	lelong	x		\b, index %d
 >36	lelong	x		\b, seed %#x
+
+# Mork database.
+# Used by older versions of Mozilla Suite and Firefox,
+# and current versions of Thunderbird.
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+0	string	//\ <!--\ <mdb:mork:z\ v="	Mozilla Mork database
+>23	string	x		\b, version %.3s
