@@ -1584,8 +1584,8 @@
 # TODO: glType (all textures I've seen so far are GL_UNSIGNED_BYTE)
 0	name	khronos-ktx-endian-header
 >20	lelong	x	\b, %u
->24	lelong	>0	x %u
->28	lelong	>0	x %u
+>24	lelong	>1	x %u
+>28	lelong	>1	x %u
 >8	lelong	>0
 >>8	use	khronos-ktx-glEnum
 >8	lelong	0
