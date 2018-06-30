@@ -907,6 +907,7 @@
 >(2.S-2)	string		(c)CRI		CRI ADX ADPCM audio
 !:ext adx
 !:mime audio/x-adx
+!:strength +50
 >>0x12		byte		x		v%u
 >>0x04		byte		0x02		\b, pre-set prediction coefficients
 >>0x04		byte		0x03		\b, standard ADX
