@@ -759,8 +759,10 @@
 >0x18		belong	0x00000000
 >>0x1C		belong	0x00000000
 >>>0x8018	belong	0x5D1C9EA3	Nintendo Wii SDK disc image:
+!:mime	application/x-wii-rom
 >>>>0x8000	use	nintendo-gcn-disc-common
 >>>0x801C	belong	0xC2339F3D	Nintendo GameCube SDK disc image:
+!:mime	application/x-gamecube-rom
 >>>>0x8000	use	nintendo-gcn-disc-common
 
 #------------------------------------------------------------------------------
