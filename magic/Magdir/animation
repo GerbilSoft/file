@@ -1064,3 +1064,10 @@
 >8	string	AHDR	LucasArts Smush Animation Format (SAN) video
 0	string	SANM
 >8	string	SHDR	LucasArts Smush v2 (SANM) video
+
+# Type: Scaleform video
+# Extension: .usm
+# URL:  https://wiki.multimedia.cx/index.php/USM
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+0	string	CRID
+>32	string	@UTF	Scaleform video
