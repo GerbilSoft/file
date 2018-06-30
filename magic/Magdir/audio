@@ -905,6 +905,8 @@
 # Added by David Korth <gerbilsoft@gerbilsoft.com>
 0x00		beshort		0x8000
 >(2.S-2)	string		(c)CRI		CRI ADX ADPCM audio
+!:ext adx
+!:mime audio/x-adx
 >>0x12		byte		x		v%u
 >>0x04		byte		0x02		\b, pre-set prediction coefficients
 >>0x04		byte		0x03		\b, standard ADX
