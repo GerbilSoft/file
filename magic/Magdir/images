@@ -1558,7 +1558,7 @@
 0	string	GBIX
 >0x10	string	PVRT
 >>0x10	string	DDS\040\174\000\000\000 Sega PVR (Xbox) image:
->>0x20	use	ms-directdraw-surface
+>>>0x20	use	ms-directdraw-surface
 >>0x10	belong	!0x44445320		Sega PVR image:
 >>>0x10	use	sega-pvr-image-header
 >>0x08	lelong	x	\b, global index = %u
