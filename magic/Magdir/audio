@@ -686,9 +686,9 @@
 # From Fabio R. Schmidlin <frs@pop.com.br>
 # VGM music file
 0	string		Vgm\040
+>9	ubyte		>0	VGM Video Game Music dump v
 !:mime	audio/x-vgm
 !:ext	vgm
->9	ubyte		>0	VGM Video Game Music dump v
 >>9	ubyte/16	>0	\b%d
 >>9	ubyte&0x0F	x	\b%d
 >>8	ubyte/16	x	\b.%d
