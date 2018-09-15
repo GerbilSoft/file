@@ -995,3 +995,14 @@
 >3	byte	0x22	(Game Boy Advance)
 >3	byte	0x23	(Super NES)
 >3	byte	0x41	(Capcom QSound)
+
+# Atari 8-bit SAP audio format
+# http://asap.sourceforge.net/sap-format.html
+# Added by David Korth <gerbilsoft@gerbilsoft.com>
+0	string		SAP\r\n	Atari 8-bit SAP audio file
+!:mime	audio/x-sap
+!:ext	sap
+>5	search/1024	NAME
+>>&1	string		x	\b: %s
+>>5	search/1024	AUTHOR
+>>>&1	string		x	by %s
