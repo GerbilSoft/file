@@ -1708,7 +1708,7 @@
 >12	lelong	0x04030201			(little-endian)
 >>16	use	khronos-ktx-endian-header
 >12	belong	0x04030201			(big-endian)
->>16	use	^khronos-ktx-endian-header
+>>16	use	\^khronos-ktx-endian-header
 
 # Type: Valve VTF texture.
 # From: David Korth <gerbilsoft@gerbilsoft.com>
