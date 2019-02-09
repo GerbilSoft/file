@@ -1058,8 +1058,8 @@
 # https://www.3dbrew.org/wiki/BCSTM
 # Added by David Korth <gerbilsoft@gerbilsoft.com>
 0	string		CSTM	Nintendo 3DS BCSTM audio file
-!:mime	audio/x-brstm
-!:ext	brstm
+!:mime	audio/x-bcstm
+!:ext	bcstm
 # 3DS is little-endian, so default to LE.
 >4	leshort		0xFEFF
 >>0	use		nintendo-3ds-bcstm-fields
