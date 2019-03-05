@@ -573,6 +573,13 @@
 >>&0	use	xbox-360-xex-execution-id
 >(0x010.L+0x178)	use	xbox-360-xex-region-code
 
+0	string	XEX1	Microsoft Xbox 360 executable (XEX1)
+!:mime	audio/x-xbox360-executable
+!:ext	xex
+>0x18	search/0x100	\x00\x04\x00\x06
+>>&0	use	xbox-360-xex-execution-id
+>(0x010.L+0x154)	use	xbox-360-xex-region-code
+
 # Atari Lynx cartridge dump (EXE/BLL header)
 # From: "Stefan A. Haubenthal" <polluks@web.de>
 
