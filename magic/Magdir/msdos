@@ -123,6 +123,7 @@
 >>(0x3c.l+4)	leshort		0x1d3	Matsushita AM33
 >>(0x3c.l+4)	leshort		0x1f0	PowerPC
 >>(0x3c.l+4)	leshort		0x1f1	PowerPC with FPU
+>>(0x3c.l+4)	leshort		0x1f2	PowerPC (big-endian)
 >>(0x3c.l+4)	leshort		0x200	Intel Itanium
 >>(0x3c.l+4)	leshort		0x266	MIPS16
 >>(0x3c.l+4)	leshort		0x268	Motorola 68000
