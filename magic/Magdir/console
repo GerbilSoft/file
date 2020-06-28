@@ -1003,6 +1003,11 @@
 # Reference: https://3dbrew.org/wiki/3DSX_Format
 0	string	3DSX	Nintendo 3DS Homebrew Application (3DSX)
 
+# Type: Nintendo 3DS Banner Model Data.
+# From: David Korth <gerbilsoft@gerbilsoft.com>
+# Reference: https://3dbrew.org/wiki/CBMD
+0	string	CBMD\0\0\0\0	Nintendo 3DS Banner Model Data
+
 #------------------------------------------------------------------------------
 # a7800: file(1) magic for the Atari 7800 raw ROM format.
 # From: David Korth <gerbilsoft@gerbilsoft.com>
