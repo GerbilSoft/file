@@ -1984,8 +1984,9 @@
 
 # Supercompression enum.
 0	name	khronos-ktx2-supercompression
->0	lelong	1	Basis Universal
+>0	lelong	1	BasisLZ
 >0	lelong	2	Zstandard
+>0	lelong	3	ZLIB
 
 # Vulkan format identifier.
 # NOTE: Formats prohibited from KTX2 are commented out.
