@@ -3298,7 +3298,7 @@
 >>4	uleshort	x	%u x
 >>8	uleshort	x	%u (rescale to
 >>6	uleshort	x	%u x
->>10	uleshort	x	%u)
+>>10	uleshort	x	%u),
 >6	uleshort	0
 >>4	uleshort	x	%u x
 >>8	uleshort	x	%u,
