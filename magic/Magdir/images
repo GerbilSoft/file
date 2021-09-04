@@ -3303,7 +3303,7 @@
 >>4	uleshort	x	%u x
 >>8	uleshort	x	%u,
 >16	ulelong&0x800000	!0		has mipmaps,
->16	ulelong&0x200000	0x200000	lossless encoding
->16	ulelong&0x400000	0x400000	lossy encoding
->16	ulelong&0x600000	0
+>16	ulelong&0x100000	0x100000	lossless encoding
+>16	ulelong&0x200000	0x200000	lossy encoding
+>16	ulelong&0x300000	0
 >>16	use	godot-3.x-pixel-format
