@@ -3372,8 +3372,7 @@
 >12	use	godot-rescale-display-h
 >12	uleshort	x	\b,
 >0x2C	ulelong		>1	%u mipmaps,
->0x24	ulelong		0
->>0x30	use	godot-pixel-format
->0x24	ulelong		1	embedded PNG image
->0x24	ulelong		2	embedded WebP image
->0x24	ulelong		3	Basis Universal
+>0x30	use	godot-pixel-format
+>0x24	ulelong		1	\b, embedded PNG image
+>0x24	ulelong		2	\b, embedded WebP image
+>0x24	ulelong		3	\b, Basis Universal
