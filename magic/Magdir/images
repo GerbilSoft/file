@@ -3473,7 +3473,7 @@
 # From: David Korth <gerbilsoft@gerbilsoft.com>
 # Shows rescale value if it's not a power of 2.
 0	name	godot-rescale-display-h
->0	clear
+>0	clear	x
 >0	uleshort	0
 >0	uleshort	1
 >0	uleshort	2
