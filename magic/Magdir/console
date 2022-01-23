@@ -509,14 +509,13 @@
 # - https://neogpc.googlecode.com/svn-history/r10/trunk/src/core/neogpc.cpp
 # - https://www.devrs.com/ngp/files/ngpctech.txt
 #
-0x0A	string	BY\ SNK\ CORPORATION	Neo Geo Pocket
+0x0A	string		BY\ SNK\ CORPORATION	Neo Geo Pocket
 !:mime	application/x-neo-geo-pocket-rom
->0x23	byte	0x10			Color
->0	byte	x			ROM image
->0x24	string	>\0			\b: "%.12s"
->0x21	byte	x			\b, NEOP%02X
->0x20	byte	x			\b%02X
->0x1F	byte	0xFF			(debug mode enabled)
+>0x23	byte		0x10			Color
+>0	byte		x			ROM image
+>0x24	string		>\0			\b: "%.12s"
+>0x21	uleshort	x			\b, NEOP%04X
+>0x1F	ubyte		0xFF			(debug mode enabled)
 
 #------------------------------------------------------------------------------
 # msx: file(1) magic for MSX game cartridge dumps
