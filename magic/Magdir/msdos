@@ -45,6 +45,51 @@
 0	leshort		0x290	MS Windows COFF PA-RISC object file
 #>4	ledate		x	stamp %s
 
+# PE machine types
+0       name    	pe-machine-type
+>0	leshort		0x14c	Intel 80386
+>0	leshort		0x160	MIPS R3000 (big-endian)
+>0	leshort		0x162	MIPS R3000
+>0	leshort		0x166	MIPS R4000
+>0	leshort		0x168	MIPS R10000
+>0	leshort		0x169	MIPS WCE v2
+>0	leshort		0x184	Alpha
+>0	leshort		0x1a2	Hitachi SH3
+>0	leshort		0x1a3	Hitachi SH3 DSP
+>0	leshort		0x1a4	Hitachi SH3E
+>0	leshort		0x1a6	Hitachi SH4
+>0	leshort		0x1a8	Hitachi SH5
+>0	leshort		0x1c0	ARM
+>0	leshort		0x1c2	ARM Thumb
+>0	leshort		0x1c4	ARM Thumb-2
+>0	leshort		0x1d3	Matsushita AM33
+>0	leshort		0x1f0	PowerPC
+>0	leshort		0x1f1	PowerPC with FPU
+>0	leshort		0x1f2	PowerPC (big-endian)
+>0	leshort		0x200	Intel Itanium
+>0	leshort		0x266	MIPS16
+>0	leshort		0x268	Motorola 68000
+>0	leshort		0x284	Alpha (64-bit)
+>0	leshort		0x290	PA-RISC
+>0	leshort		0x366	MIPS with FPU
+>0	leshort		0x466	MIPS16 with FPU
+>0	leshort		0x520	Infineon TriCore
+>0	leshort		0xcef	Common Executable Format (WinCE)
+>0	leshort		0xebc	EFI byte code
+>0	leshort		0x5032	RISC-V 32-bit
+>0	leshort		0x5064	RISC-V 64-bit
+>0	leshort		0x5128	RISC-V 128-bit
+>0	leshort		0x6232	LoongArch 32-bit
+>0	leshort		0x6264	LoongArch 64-bit
+>0	leshort		0x8664	x86-64
+>0	leshort		0x9041	Mitsubishi M32R
+>0	leshort		0xa664	ARM64 (emulation-compatible)
+>0	leshort		0xaa64	ARM64
+>0	leshort		0xc0ee	MSIL (.NET)
+# GRR: the next 2 lines are not executed!
+>0	default		x	Unknown processor type
+>>&0	leshort		x	%#x
+
 # Tests for various EXE types.
 #
 # Many of the compressed formats were extracted from IDARC 1.23 source code.
@@ -260,48 +305,7 @@
 #>>>&0		leshort		x	%#x)
 >>(0x3c.l+92)	leshort		>16	(Unknown subsystem
 >>>&0		leshort		x	%#x)
->>(0x3c.l+4)	leshort		0x14c	Intel 80386
->>(0x3c.l+4)	leshort		0x160	MIPS R3000 (big-endian)
->>(0x3c.l+4)	leshort		0x162	MIPS R3000
->>(0x3c.l+4)	leshort		0x166	MIPS R4000
->>(0x3c.l+4)	leshort		0x168	MIPS R10000
->>(0x3c.l+4)	leshort		0x169	MIPS WCE v2
->>(0x3c.l+4)	leshort		0x184	Alpha
->>(0x3c.l+4)	leshort		0x1a2	Hitachi SH3
->>(0x3c.l+4)	leshort		0x1a3	Hitachi SH3 DSP
->>(0x3c.l+4)	leshort		0x1a4	Hitachi SH3E
->>(0x3c.l+4)	leshort		0x1a6	Hitachi SH4
->>(0x3c.l+4)	leshort		0x1a8	Hitachi SH5
->>(0x3c.l+4)	leshort		0x1c0	ARM
->>(0x3c.l+4)	leshort		0x1c2	ARM Thumb
->>(0x3c.l+4)	leshort		0x1c4	ARM Thumb-2
->>(0x3c.l+4)	leshort		0x1d3	Matsushita AM33
->>(0x3c.l+4)	leshort		0x1f0	PowerPC
->>(0x3c.l+4)	leshort		0x1f1	PowerPC with FPU
->>(0x3c.l+4)	leshort		0x1f2	PowerPC (big-endian)
->>(0x3c.l+4)	leshort		0x200	Intel Itanium
->>(0x3c.l+4)	leshort		0x266	MIPS16
->>(0x3c.l+4)	leshort		0x268	Motorola 68000
->>(0x3c.l+4)	leshort		0x284	Alpha (64-bit)
->>(0x3c.l+4)	leshort		0x290	PA-RISC
->>(0x3c.l+4)	leshort		0x366	MIPS with FPU
->>(0x3c.l+4)	leshort		0x466	MIPS16 with FPU
->>(0x3c.l+4)	leshort		0x520	Infineon TriCore
->>(0x3c.l+4)	leshort		0xcef	Common Executable Format (WinCE)
->>(0x3c.l+4)	leshort		0xebc	EFI byte code
->>(0x3c.l+4)	leshort		0x5032	RISC-V 32-bit
->>(0x3c.l+4)	leshort		0x5064	RISC-V 64-bit
->>(0x3c.l+4)	leshort		0x5128	RISC-V 128-bit
->>(0x3c.l+4)	leshort		0x6232	LoongArch 32-bit
->>(0x3c.l+4)	leshort		0x6264	LoongArch 64-bit
->>(0x3c.l+4)	leshort		0x8664	x86-64
->>(0x3c.l+4)	leshort		0x9041	Mitsubishi M32R
->>(0x3c.l+4)	leshort		0xa664	ARM64 (emulation-compatible)
->>(0x3c.l+4)	leshort		0xaa64	ARM64
->>(0x3c.l+4)	leshort		0xc0ee	MSIL (.NET)
-# GRR: the next 2 lines are not executed!
->>(0x3c.l+4)	default		x	Unknown processor type
->>>&0		leshort		x	%#x
+>>(0x3c.l+4)	use	pe-machine-type
 >>(0x3c.l+22)	leshort&0x0200	>0	(stripped to external PDB)
 >>(0x3c.l+22)	leshort&0x1000	>0	system file
 >>(0x3c.l+24)	leshort		0x010b
